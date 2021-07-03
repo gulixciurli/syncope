@@ -19,6 +19,12 @@ dist: bionic
 arch: amd64
 jdk:
   - openjdk11
+
+addons:
+  sonarcloud:
+    organization: "gulixciurli"
+    token: d11e04d310354e94c31473946f09562d2ca00c66
+
 cache:
   bundler: false
   cargo: false
@@ -29,6 +35,8 @@ git:
 env:
   global:
   - MAVEN_OPTS="-Xmx4096M -Xss128M -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -noverify"
+ # - TestCommand="mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=gulixciurli_syncope"
+  - TestCommand="mvn -U -T 1C org.jacoco:jacoco-maven-plugin:prepare-agent clean install -DskipITs -Dtest=org.apache.syncope.core.provisioning.api.utils.*Test* sonar:sonar -Dsonar.projectKey=gulixciurli_syncope -DfailIfNoTests=false test -Dinvoker.streamLogs=true -Dmodernizer.skip=true -Dianal.skip=true -Drat.skip=true -Dcheckstyle.skip=true -Dsass.skip=true"
 install: true
 stages:
   - build
@@ -42,3 +50,4 @@ jobs:
     - stage: test
       name: "Unit Tests via JDK 11"
       script: eval $TestCommand
+      
