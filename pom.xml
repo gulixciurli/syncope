@@ -1144,12 +1144,6 @@ under the License.
         <groupId>org.apache.directory.server</groupId>
         <artifactId>apacheds-core-annotations</artifactId>
         <version>${apacheds.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.directory.server</groupId>
@@ -2057,6 +2051,13 @@ under the License.
         <version>${junit.version}</version>
         <scope>test</scope>
       </dependency>
+      <!-- Make jupiter and junit tests coesist -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.2</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
 
   </dependencyManagement>
@@ -2351,6 +2352,8 @@ under the License.
             <redirectTestOutputToFile>true</redirectTestOutputToFile>
             <encoding>utf-8</encoding>
             <runOrder>alphabetical</runOrder>
+            <!-- Skkipping Integration tests
+            <skipITs>true</skipITs>-->
           </configuration>
           <executions>
             <execution>
@@ -2374,6 +2377,7 @@ under the License.
             </dependency>
           </dependencies>
           <configuration>
+            <skip>true</skip>
             <configLocation>${rootpom.basedir}/src/main/resources/org/apache/syncope/checkstyle.xml</configLocation>
             <targetJdk>${targetJdk}</targetJdk>
           </configuration>
@@ -2465,6 +2469,8 @@ under the License.
         <artifactId>modernizer-maven-plugin</artifactId>
         <version>${modernizer-maven.version}</version>
         <configuration>
+          <!-- Skipping
+          <skip>true</skip> -->
           <javaVersion>${targetJdk}</javaVersion>
           <ignorePackages>
             <ignorePackage>org.apache.syncope.core.persistence.jpa.entity</ignorePackage>
