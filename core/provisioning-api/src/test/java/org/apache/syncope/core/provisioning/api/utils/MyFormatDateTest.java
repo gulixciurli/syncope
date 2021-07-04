@@ -15,7 +15,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class myFormatDateTest {
+public class MyFormatDateTest {
     //private final Calendar calendar = Calendar.getInstance();
 
     private boolean expectedResult;
@@ -23,7 +23,7 @@ public class myFormatDateTest {
     private boolean lenient;
     private String conversionPattern;
 
-    public myFormatDateTest(boolean expectedResult, Date date, boolean lenient, String conversionPattern){
+    public MyFormatDateTest(boolean expectedResult, Date date, boolean lenient, String conversionPattern){
         this.expectedResult = expectedResult;
         this.date = date;
         this.lenient = lenient;
