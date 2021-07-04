@@ -14,9 +14,9 @@ import java.util.*;
 @RunWith(Parameterized.class)
 public class MyParseNumberTest {
     //private final Calendar calendar = Calendar.getInstance();
-    private static Calendar calendar = Calendar.getInstance();
+    private static final Calendar calendar = Calendar.getInstance();
 
-    private static Date date = calendar.getTime();
+    private static final Date date = calendar.getTime();
 
     private boolean expectedResult;
     private String source;
