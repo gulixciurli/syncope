@@ -71,18 +71,15 @@ under the License.
       <artifactId>syncope-core-persistence-api</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <!-- Solution to make junit tests AND jupiter ones-->
-    <!-- https://stackoverflow.com/questions/62552652/run-both-junit-4-and-junit5-with-maven-surefire-plugin-2020 -->
+
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.6.3</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
